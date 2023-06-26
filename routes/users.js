@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+import {Router} from "express"
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+const auth_router= Router()
 
-module.exports = router;
+// auth_router.post()
+// auth_router.get()
+// auth_router.put()
+// auth_router.delete()
+
+export default auth_router
