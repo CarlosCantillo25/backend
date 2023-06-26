@@ -1,7 +1,7 @@
-import Author from '../../models/Author.js'
+import Category from '../../models/Category.js'
 export default async(req,res)=>{
     try{
-        let all = await Author.find()
+        let all = await Category.find()
         if (all.length>0){
             return res.status(200).json({
                 response:all,
