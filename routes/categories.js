@@ -4,7 +4,7 @@ import read from '../controllers/category/read.js'
 const category_router= Router()
 
 // category_router.post()
-category_router.get('/',read )
+category_router.get( '/',read )
 // category_router.put()
 // category_router.delete()
 
