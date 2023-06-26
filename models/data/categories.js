@@ -39,8 +39,12 @@ let categories = [
     }
 ]
 
-for (let category of categories) {
-    let user = await User.findOne({ email: category.admin_id })
-    category.admin_id = user._id
+async function add_category(category) {
+    let user = await User.findOne({ email:category.admin_id })
+    console.log(category.admin_id);
+    let admin_id = user._id
+    category.admin_id = admin_id
     await Category.create(category)
 }
+
+categories.forEach(category=>add_category(category))
