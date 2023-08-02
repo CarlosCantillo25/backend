@@ -1,7 +1,7 @@
 import Category from "../Category.js"
+import User from "../User.js"
 import 'dotenv/config.js'
 import '../../config/db.js'
-import User from '../User.js'
 
 let categories = [
     {
@@ -41,10 +41,12 @@ let categories = [
 
 async function add_category(category) {
     let user = await User.findOne({ email:category.admin_id })
-    console.log(category.admin_id);
     let admin_id = user._id
     category.admin_id = admin_id
+    console.log(category)
     await Category.create(category)
 }
 
 categories.forEach(category=>add_category(category))
+
+

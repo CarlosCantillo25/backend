@@ -1,26 +1,25 @@
-import { Schema, model } from "mongoose";
-// cluster: conjunto de base de datos(el link de mongo que obtienen es del cluster)
-//db: conjunto de colecciones(coleccion hace referencia a recurso y resurso hace referencia a los modelos de datos que necesita mi aplicacion)
+import { Schema, model } from 'mongoose'
+//cluster: conjunto de base de datos (el link de mongo que obtienen es del cluster)
+//db: conjunto de colecciones (coleccion hace referencia a recurso y recurso hace referencia a los modelos de datos que necesita mi aplicacion)
 //coleccion: conjunto de documentos
-//colecciones: usuarios, capitulos,productos,carrito.
+//colecciones: usuarios, capitulos, productos, carritos
 //documento: al dato
-// el array de eventos que se fetcheaba en amazing events me traia toda la coleccion de eventos
-// cada objeto de ese array era un documentode la coleccion
-let collection = 'users' 
-//los nombres de las colleciones van siempre en plural (por que son un conjunto de)
-//van siempre en ingles
-//tienen que ser descriptivos del recurso
-//recurso category => coleccion categories
-let schema = new Schema({       //defino el primer objeto con las propiedades necesarias para el modelo
-    email:{type:String, required:true },
-    password:{type:String, required:true},
-    photo:{type:String,required:true},
-    role:{type:Number, required:true},
-    online:{type:Boolean},
-    verified:{type:Boolean,required:true},
-    verify_code:{type:String, required:true}
+//el array de eventos que se fetcheaba en AME me traia toda la coleccion de eventos , cada objeto de ese array era un documento de la coleccion
 
-},{                            //timestamps
+let collection = 'users'  //nombre de la coleccion donde se van a guardar todos los documentos
+//los nombres de las colecciones van siempre en plural (porque son un conjunto de)
+//tienen que ser descriptivos del recurso
+//recurso category => coleccion categorias
+//recurso author => coleccion authors
+let schema = new Schema({        //defino el primer objeto con las propiedades necesarias para el modelo // molde de los datos 
+    email: { type:String,required:true},
+    password: { type:String,required:true },
+    photo: { type:String,required:true },
+    role: { type:Number, default:0},
+    online: { type:Boolean, default:false },
+    verified: { type:Boolean, default: true},
+    verify_code: {type:String }
+},{             //timestamps
     timestamps:true
 })
 

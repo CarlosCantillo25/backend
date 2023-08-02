@@ -1,9 +1,10 @@
 import Author from "../Author.js"
 import User from "../User.js"
-import "dotenv/config.js"
-import "../../config/db.js"
+import 'dotenv/config.js'
+import '../../config/db.js'
 
 let authors = [{
+
     name: "lucas",
     last_name: "silva",
     city: "buenos aires",
@@ -35,13 +36,15 @@ let authors = [{
     active: true,
     user_id: 'igna@mh.com.ar'
 }]
+
 //necesito un loop para buscar el id de cada usuario en base al correo electronico
-async function add_authors(){
-    for (let author of authors){
-        let user=await User.findOne({email:author.user_id})// el metodo findOne es un propio de mongoose y encuentra uno y await es para esperar mientras hace la busqueda.
-        let user_id= user._id  //guiardo la propiedad _id del usuario encontrado en una variable
-        author.user_id=user_id //reasigno la propiedad del user_id del author por el objetid encontrado
-        Author.create(author) //el metodo create, crea un unico documento con el objeto de datos (author)
-    }    
+authors.forEach(author=>add_authors(author))
+
+async function add_authors(author) {
+    //console.log(author.user_id)
+    let user = await User.findOne({ email:author.user_id })     //esperé que mongo me busque un usuario que coincida con el email guardado en la propiedad user_id
+    //console.log(user._id)
+    let user_id = user._id                                      //guardo la propiedad _id del usuario encontrado en una variable
+    author.user_id = user_id                                    //reasigno la propiedad del user_id del author por el objectid encontrado
+    await Author.create(author)                                 //el método create, crea un unico documento con el objeto de datos (author)
 }
-add_authors()

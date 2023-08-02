@@ -1,4 +1,5 @@
 import {Router} from "express"
+import read from "../controllers/mangas/read.js"
 
 const manga_router= Router()
 
