@@ -1,6 +1,6 @@
 import User from "../User.js"
-import "dotenv/config.js"
-import "../../config/db.js"
+import 'dotenv/config.js'
+import'../../config/db.js'
 
 let users = [{
     email: "lucas@mh.com.ar",
@@ -43,6 +43,5 @@ let users = [{
     online: false,
     photo: "https://i.postimg.cc/7Yj2FytQ/43cc80b4c098e43a988c535eaba42c53-icono-de-usuario-de-persona.png"
 }]
-
-//el metodo inserMany requiere que le pase unarray con los datos a insertar en mongo
 User.insertMany(users)
+//el metodo insertmany requiere que le pase un array con los datos a insertar en mongo

@@ -1,11 +1,11 @@
-import {Router} from "express"
-import read from '../controllers/category/read.js'
+import { Router } from "express"
+import read from "../controllers/categories/read.js"
 
-const category_router= Router()
+const category_router = Router()
 
-// category_router.post()
-category_router.get( '/',read )
-// category_router.put()
-// category_router.delete()
+//category_router.post()
+category_router.get('/',read)
+//category_router.put()
+//category_router.delete()
 
 export default category_router
